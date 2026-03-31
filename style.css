@@ -28,9 +28,10 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--w
 .btn--gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(252,209,22,0.4); }
 .btn--ghost { color: var(--white); border-color: rgba(255,255,255,0.5); }
 .btn--ghost:hover { background: rgba(255,255,255,0.15); }
-.btn--nav { background: var(--green); color: var(--white) !important; padding: 10px 24px; border-radius: 8px; }
-.btn--nav:hover { background: var(--green-dark) !important; }
-.nav.scrolled .btn--nav { background: var(--green); color: var(--white) !important; }
+.btn--nav { border: 2px solid rgba(255,255,255,0.7); color: var(--white) !important; padding: 10px 24px; border-radius: 8px; background: transparent; transition: all 0.3s; }
+.btn--nav:hover { background: rgba(255,255,255,0.15) !important; }
+.nav.scrolled .btn--nav { background: var(--green) !important; color: var(--white) !important; border-color: var(--green); }
+.nav.scrolled .btn--nav:hover { background: var(--green-dark) !important; }
 .btn--full { width: 100%; text-align: center; }
 
 /* ── NAV ── */
