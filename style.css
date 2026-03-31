@@ -270,7 +270,9 @@ a.sector-card .sector-card__deadline { color: var(--green); }
   .nav__burger { display: flex; z-index: 201; }
   .nav__burger span { background: var(--white) !important; }
   .nav.scrolled .nav__burger span { background: var(--text) !important; }
+  /* when open: white X, and kill the white nav background so overlay looks clean */
   .nav__burger.open span { background: var(--white) !important; }
+  .nav.scrolled.menu-open { background: transparent !important; box-shadow: none !important; }
   .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav__burger.open span:nth-child(2) { opacity: 0; }
   .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
