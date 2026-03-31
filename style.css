@@ -234,10 +234,32 @@ a.sector-card .sector-card__deadline { color: var(--green); }
 }
 
 @media (max-width: 768px) {
-  .nav__links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,40,20,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 32px; z-index: 199; }
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,40,20,0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    z-index: 199;
+  }
   .nav__links.open { display: flex; }
-  .nav__links a { font-size: 1.2rem; color: var(--white); }
+  .nav__links a { font-size: 1.2rem; color: var(--white) !important; border: none !important; background: none !important; }
+  .nav__links .btn--nav {
+    background: var(--gold) !important;
+    color: var(--green-dark) !important;
+    border-color: var(--gold) !important;
+    font-size: 1rem;
+    padding: 14px 36px;
+  }
   .nav__burger { display: flex; z-index: 201; }
+  /* always white so it's visible over both hero and white nav */
+  .nav__burger span { background: var(--white) !important; }
+  .nav.scrolled .nav__burger span { background: var(--text) !important; }
+  /* when menu is open, burger is on top of dark overlay — keep white */
+  .nav__burger.open span { background: var(--white) !important; }
   .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav__burger.open span:nth-child(2) { opacity: 0; }
   .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
