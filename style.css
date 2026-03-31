@@ -233,51 +233,46 @@ a.sector-card .sector-card__deadline { color: var(--green); }
 }
 
 @media (max-width: 768px) {
-  /* ── Mobile nav — drawer drops down from the nav bar itself ── */
+  /* ── Mobile nav — same full-screen overlay as top-of-page ── */
   .nav__burger { display: flex; }
-  .nav__burger.open span { background: var(--white) !important; }
+  .nav__burger span { background: var(--white); }
   .nav.scrolled .nav__burger span { background: var(--text); }
-  .nav.scrolled .nav__burger.open span { background: var(--green) !important; }
+  .nav__burger.open span { background: var(--white) !important; }
   .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav__burger.open span:nth-child(2) { opacity: 0; }
   .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
   .nav__links {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: var(--green-dark);
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,40,20,0.97);
     flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px 0 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    overflow-y: auto;
   }
   .nav__links.open { display: flex; }
   .nav__links a {
     color: rgba(255,255,255,0.9) !important;
-    font-size: 1rem !important;
-    padding: 14px 24px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    font-size: 1.2rem !important;
+    padding: 10px 0 !important;
     background: none !important;
-    text-align: left !important;
+    border: none !important;
+    text-align: center !important;
     width: 100% !important;
     border-radius: 0 !important;
-    transition: background 0.2s !important;
   }
-  .nav__links a:hover { background: rgba(255,255,255,0.08) !important; color: var(--white) !important; }
   .nav__links .btn--nav {
-    margin: 12px 24px 0 !important;
     background: var(--gold) !important;
     color: var(--green-dark) !important;
     border-color: var(--gold) !important;
-    text-align: center !important;
+    padding: 14px 48px !important;
     border-radius: 8px !important;
-    padding: 12px 24px !important;
     font-weight: 700 !important;
-    border-bottom: none !important;
-    width: calc(100% - 48px) !important;
+    width: auto !important;
+    margin-top: 8px !important;
   }
 
   /* ── Layout fixes ── */

@@ -10,11 +10,18 @@ const navLinks = document.querySelector('.nav__links');
 burger.addEventListener('click', () => {
   burger.classList.toggle('open');
   navLinks.classList.toggle('open');
+  // When open, remove scrolled so nav looks same as top-of-page state
+  if (navLinks.classList.contains('open')) {
+    nav.classList.remove('scrolled');
+  } else {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }
 });
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     burger.classList.remove('open');
     navLinks.classList.remove('open');
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   });
 });
 
