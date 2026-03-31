@@ -35,19 +35,19 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--w
 .btn--full { width: 100%; text-align: center; }
 
 /* ── NAV ── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 20px 0; transition: background 0.4s, padding 0.4s, box-shadow 0.4s; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 0; transition: background 0.4s, padding 0.4s, box-shadow 0.4s; }
 .nav.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); padding: 12px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 .nav.scrolled .logo { color: var(--green); }
 .nav.scrolled .logo span { color: var(--text-muted); }
 .nav.scrolled .nav__links a { color: var(--text-muted); }
 .nav.scrolled .nav__links a:hover { color: var(--green); }
-.nav__inner { display: flex; align-items: center; justify-content: space-between; }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 102; }
 .logo { font-size: 1.6rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -1px; transition: color 0.3s; }
 .logo span { font-weight: 300; opacity: 0.7; }
 .nav__links { display: flex; align-items: center; gap: 32px; }
 .nav__links a { text-decoration: none; color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
 .nav__links a:hover { color: var(--white); }
-.nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; position: relative; z-index: 103; }
 .nav__burger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; border-radius: 2px; }
 .nav.scrolled .nav__burger span { background: var(--text); }
 
@@ -239,12 +239,12 @@ a.sector-card .sector-card__deadline { color: var(--green); }
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,40,20,0.97);
+    background: rgba(0,40,20,0.98);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 24px;
-    z-index: 199;
+    z-index: 101;
     overflow-y: auto;
     padding: 80px 24px 40px;
   }
@@ -267,12 +267,12 @@ a.sector-card .sector-card__deadline { color: var(--green); }
     border-radius: 8px;
     margin-top: 8px;
   }
-  .nav__burger { display: flex; z-index: 201; }
-  .nav__burger span { background: var(--white) !important; }
-  .nav.scrolled .nav__burger span { background: var(--text) !important; }
-  /* when open: white X, and kill the white nav background so overlay looks clean */
-  .nav__burger.open span { background: var(--white) !important; }
-  .nav.scrolled.menu-open { background: transparent !important; box-shadow: none !important; }
+  .nav__burger { display: flex; }
+  /* burger spans: white when open (on dark overlay), dark when scrolled+closed */
+  .nav__burger span { background: var(--white); }
+  .nav.scrolled .nav__burger span { background: var(--text); }
+  .nav__burger.open span,
+  .nav.scrolled .nav__burger.open span { background: var(--white) !important; }
   .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav__burger.open span:nth-child(2) { opacity: 0; }
   .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
