@@ -234,6 +234,7 @@ a.sector-card .sector-card__deadline { color: var(--green); }
 }
 
 @media (max-width: 768px) {
+  /* ── Mobile nav overlay ── */
   .nav__links {
     display: none;
     position: fixed;
@@ -242,27 +243,47 @@ a.sector-card .sector-card__deadline { color: var(--green); }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
     z-index: 199;
+    overflow-y: auto;
+    padding: 80px 24px 40px;
   }
   .nav__links.open { display: flex; }
-  .nav__links a { font-size: 1.2rem; color: var(--white) !important; border: none !important; background: none !important; }
+  .nav__links a {
+    font-size: 1.1rem;
+    color: var(--white) !important;
+    border: none !important;
+    background: none !important;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
   .nav__links .btn--nav {
     background: var(--gold) !important;
     color: var(--green-dark) !important;
     border-color: var(--gold) !important;
     font-size: 1rem;
-    padding: 14px 36px;
+    padding: 14px 48px;
+    border-radius: 8px;
+    margin-top: 8px;
   }
   .nav__burger { display: flex; z-index: 201; }
-  /* always white so it's visible over both hero and white nav */
   .nav__burger span { background: var(--white) !important; }
   .nav.scrolled .nav__burger span { background: var(--text) !important; }
-  /* when menu is open, burger is on top of dark overlay — keep white */
   .nav__burger.open span { background: var(--white) !important; }
   .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav__burger.open span:nth-child(2) { opacity: 0; }
   .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── Layout fixes ── */
+  .service-feature__body { padding: 32px 20px; }
+  .service-feature__img { min-height: 240px; }
+  .service-feature__num { font-size: 2.5rem; }
+  .sector-card { flex: 0 0 280px; }
+  .sectors-scroll { padding: 0 20px 20px; }
+  .who-card { height: 380px; }
+  .who-card p { max-height: none; opacity: 1; }
+  .split-section__text { padding: 40px 20px; }
   .process-steps { grid-template-columns: 1fr; }
   .contact-section__inner { grid-template-columns: 1fr; gap: 40px; }
   .form-row { grid-template-columns: 1fr; }
@@ -270,12 +291,21 @@ a.sector-card .sector-card__deadline { color: var(--green); }
   .stat-strip__inner { justify-content: center; }
   .stat__divider { display: none; }
   .parallax-img { background-attachment: scroll; }
+  .container { padding: 0 20px; }
+  .section { padding: 60px 0; }
+  .hero__cta { flex-direction: column; }
+  .hero__cta .btn { text-align: center; }
 }
 
 @media (max-width: 540px) {
   .who-grid { grid-template-columns: 1fr; }
+  .who-card { height: 320px; }
   .deadline-grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 2rem; }
-  .hero__slide-dots { right: 20px; bottom: 20px; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero__slide-dots { right: 16px; bottom: 16px; }
+  .stat__num { font-size: 1.8rem; }
+  .deadline-card { padding: 20px 16px; }
+  .service-feature__body { padding: 28px 16px; }
+  .sector-card { flex: 0 0 260px; }
 }
